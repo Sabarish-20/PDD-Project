@@ -3,28 +3,49 @@
     "name": "GriefBridge",
     "slug": "GriefBridge",
     "version": "1.0.0",
+    "scheme": "griefbridge",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
-    "newArchEnabled": true,
+    "userInterfaceStyle": "automatic",
     "splash": {
       "image": "./assets/splash-icon.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.sabarish.griefbridge",
+      "infoPlist": {
+        "NSCameraUsageDescription": "The app needs access to your camera to let you take photos of memories.",
+        "NSMicrophoneUsageDescription": "The app needs access to your microphone for voice messages and memory narration."
+      }
     },
     "android": {
+      "package": "com.sabarish.griefbridge",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "edgeToEdgeEnabled": true,
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "permissions": [
+        "CAMERA",
+        "RECORD_AUDIO"
+      ]
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "plugins": [
+      "expo-router",
+      "expo-font",
+      "expo-asset",
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "The app needs access to your photos to let you share memories.",
+          "cameraPermission": "The app needs access to your camera to let you take photos of memories."
+        }
+      ]
+    ]
   }
 }
